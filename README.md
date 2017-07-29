@@ -50,4 +50,33 @@ for Orcale
 jdbc:oracle:thin:@localhost:2521:XE
 XE - SID, default, also we use : instead of /
 
+# Statement/PreparedStatement/CallableStatement
+
+Used to execute a query
+
+Uses connection instane to sent the sql statements to a database
+
+Transaction Demarcation - Marking the start and end of transaction
+
+ACID - Atomic - All or None
+ACID - Consistency - unitl the statemetns are commited or rolled back, data isshown to everyone in a consitent fashion.
+ACID - Isolation - Every transaction is carried out indepedently of one another
+ACID - The effect is persistent if the dbms informs the user about successful execution.
+
+Connections object - set Autocommit to false, if it is set to true, all the sql statemenst are commite or rolled back independently.
+
+# JDBC Program -
+
+Connection conn = DriverManager.getConnection(url,username,password);
+// Transaction Begins Here
+
+Statement stmt = conn.createstatement() ;
+stmt.execute(sql1);
+conn.commit(); // The transaction ends here
+
+Use try catch Block to a whole transaction.
+
+try - sql statements and commit
+catch - rollback
+finally - release the resources
 
